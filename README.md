@@ -1,6 +1,36 @@
 # keepalived
 This repo demonstrates the core functionality of Keepalived using `docker-compose`.
 
+## Prerequisite
+* `docker version`:
+```
+Client:
+ Version:           18.09.8
+ API version:       1.39
+ Go version:        go1.10.8
+ Git commit:        0dd43dd87f
+ Built:             Wed Jul 17 17:41:19 2019
+ OS/Arch:           linux/amd64
+ Experimental:      false
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          18.09.8
+  API version:      1.39 (minimum version 1.12)
+  Go version:       go1.10.8
+  Git commit:       0dd43dd
+  Built:            Wed Jul 17 17:07:25 2019
+  OS/Arch:          linux/amd64
+  Experimental:     false
+```
+* `docker-compose version`
+```
+docker-compose version 1.24.0, build 0aa59064
+docker-py version: 3.7.2
+CPython version: 3.6.8
+OpenSSL version: OpenSSL 1.1.0j  20 Nov 2018
+```
+
 ## Get Started
 * `docker-compose up -d`
 * `docker-compose logs m1`:
