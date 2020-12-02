@@ -1,0 +1,34 @@
+version: "3.0"
+services:
+    m1:
+        build: .
+        image: jimlin7777/keepalived
+        # This can used for debugging
+        # command: bash -c "while true; do echo Sleep!; sleep 10; done"
+        # -l: Log messages to the local console, -n: run in foreground
+        command: bash -c "keepalived -l -n"
+        volumes:
+            - ./keepalived_m1:/etc/keepalived
+        # Only by adding this flag, we can execute `ip addr add <ip> dev eth0`
+        cap_add:
+            - NET_ADMIN
+        networks:
+            - subnet
+    m2:
+        build: .
+        image: jimlin7777/keepalived
+        # command: bash -c "while true; do echo Sleep!; sleep 10; done"
+        command: bash -c "keepalived -l -n"
+        volumes:
+            - ./keepalived_m2:/etc/keepalived
+        cap_add:
+            - NET_ADMIN
+        networks:
+            - subnet
+networks:
+    subnet:
+        ipam:
+            driver: default
+            config:
+                - subnet: "172.31.238.0/24"
+
