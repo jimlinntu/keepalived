@@ -126,8 +126,9 @@ m2_1  | Wed Dec  2 03:46:18 2020: VRRP_Instance(VRRP1) Entering MASTER STATE
 ## References
 * <http://manpages.ubuntu.com/manpages/xenial/man8/keepalived.8.html>
 * <https://docs.oracle.com/cd/E37670_01/E41138/html/section_uxg_lzh_nr.html>: where I mainly copied the code.
-* <https://www.redhat.com/sysadmin/advanced-keepalived>
+* <https://www.redhat.com/sysadmin/advanced-keepalived>: It mention the directives `notify`, `notify_master`.
 * <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/load_balancer_administration/keepalived_install_example1>
 * <http://manpages.ubuntu.com/manpages/xenial/man5/keepalived.conf.5.html>
 * <https://blog.csdn.net/u013256816/article/details/49356689>
 * <https://www.opencli.com/linux/ip-command>
+* <https://manpages.debian.org/testing/keepalived/keepalived.conf.5.en.html>: a good reference manual.
