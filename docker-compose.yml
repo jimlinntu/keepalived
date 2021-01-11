@@ -6,7 +6,9 @@ services:
         # This can used for debugging
         # command: bash -c "while true; do echo Sleep!; sleep 10; done"
         # -l: Log messages to the local console, -n: run in foreground
-        command: bash -c "keepalived -l -n"
+        command: bash -c "cp /etc/keepalived/master_setup.sh / && chmod +x /master_setup.sh && exec keepalived -l -n"
+        tty: true
+        stdin_open: true
         volumes:
             - ./keepalived_m1:/etc/keepalived
         # Only by adding this flag, we can execute `ip addr add <ip> dev eth0`
@@ -18,13 +20,15 @@ services:
         build: .
         image: jimlin7777/keepalived
         # command: bash -c "while true; do echo Sleep!; sleep 10; done"
-        command: bash -c "keepalived -l -n"
+        command: bash -c "cp /etc/keepalived/*.sh / && chmod +x /*.sh && exec keepalived -l -n"
         volumes:
             - ./keepalived_m2:/etc/keepalived
         cap_add:
             - NET_ADMIN
         networks:
             - subnet
+        depends_on:
+            - m1
 networks:
     subnet:
         ipam:
